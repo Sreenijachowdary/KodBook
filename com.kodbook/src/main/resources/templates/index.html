@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>KodBook</title>
+		<style>
+	  body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+	.login-container{
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,1);
+        padding: 20px;
+        width: 300px;
+    }
+    .login-container{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .form-group label{
+       display: block;
+       margin-bottom: 5px;
+       text-align: left;
+    }
+    .form-group input{
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    .form-group input:focus{
+        border-color: #333;
+        outline: none;
+    }
+    .form-group button{
+        width: 100%;
+        padding: 10px;
+        border:none;
+        background-color: #333;
+        color: white;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .form-group button:hover{
+        background-color: black;
+    }
+    .a{
+    	cursor:pointer;
+    }
+    .fp{
+    	text-align: right;
+    }
+    button{
+        width: 60%;
+        padding: 10px;
+        border:none;
+        background-color: #ff9933;
+        color: black;
+        font-size: 13px;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align:center;
+    }
+    button:hover{
+        background-color: #ec8621;
+    }
+    
+	h1 {
+	  font-family: Arial, sans-serif; /* Sets a clean, readable font */
+	  font-size: 2rem; /* Adjusts the size of the heading */
+	  text-align: left; /* Centers the text */
+	  color: #333; /* Sets a dark gray color for the text */
+	  padding:5px; /* Adds some space around the heading */
+	  background-color: #f4f4f4; /* Light gray background color */
+	  position: relative;
+	  bottom: 30px;
+	  right:20px;
+	}
+
+    span{
+    	color:#ff9933;
+    }
+    p{
+    	position: relative;
+    	top:5px;
+	  	right:12%;
+    }
+    
+   </style>
+   
+	</head>
+	<body>
+
+		<h1><span>Kod</span>Book!</h1>
+		<br><br>
+		<p><strong>#1.Social media app!</strong></p>
+	
+		<div class="login-container">
+		<h2>log<span>in</span> page!</h2>
+	
+	 <form action="/login" method="post">
+        <div class="form-group">
+            <label for="name">User Name:</label>
+            <input type="text" name="username" placeholder="Enter user name"required>
+        </div>
+        <br><br>
+        <div class="form-group">
+            <label for="password">Password: </label>
+            <input type="password" name="password" placeholder="Enter password"required>
+        </div>
+        <br><br>
+        <div class="form-group">
+            <button type="submit">LOG IN </button>
+        </div>
+        
+    </form>
+    <br>
+    	<div class="fp">
+    	<a href="/openResetPassword">Forgot Password?</a>
+    	</div>
+    	<br><br>
+    	<a href="/openSignUp"><button type="submit">Create new account</button></a>
+	</div>
+	</body>
+</html>

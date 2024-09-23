@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Home Page!</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/home.css}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	</head>
+	<body>
+		
+  <div class="navbar">
+  	
+        <span th:text="${session.username}"></span>
+    	<a href="/goHome"><i class="fas fa-home"></i> Home</a>
+        <a href="/openCreatePost"><i class="fas fa-plus-circle"></i> Create post</a>
+        <a href="/openMyProfile"><i class="fas fa-user-circle"></i> My profile</a>
+         <a href="/logout"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+  </div>
+   <h1>Post Details</h1>
+    <div class="profile-details">
+    <span th:each = "post:${allPosts}">
+    <div class="profile-img">
+    	<p>
+    	<img th:if = "${post.user.photoBase64}" th:src= "'data:image/jpeg;base64,'+${post.user.photoBase64}"
+        	alt="User Photo"/>
+        <a th:href="@{/openUserProfile(username=${post.user.username})}" ><span th:text="${post.user.username}">Unknown</span></a>
+        </p>
+      </div>
+        <p><strong>Photo:</strong></p>
+        <img th:if="${post.photoBase64}" th:src="'data:image/jpeg;base64,' + ${post.photoBase64}" alt="Profile Photo" /> 
+        <p><strong>Caption:</strong> 
+        <span th:text="${post.caption}"></span></p>
+        
+        <p><strong>Likes:</strong> 
+        <span th:text="${post.likes}"></span></p>
+       <!--Like form -->
+        <form action="/likePost">
+        	<input type= "hidden" name = "id" th:value="${post.id}">
+        	<input type="submit" value="LIKE POST">
+        </form>
+        <br><br>
+        <!-- Comment form -->
+        <form action="/addComment" method="post" class="comment-form">
+                    <input type="hidden" name="id" th:value="${post.id}">
+                    <textarea name="comment" placeholder="Add a comment..." required></textarea>
+                    <input type="submit" value="Comment">
+        </form>
+       <!-- Display Comments -->
+       <div class="comments-section">
+       		<h4>Comments:</h4>
+       	<ul>
+       		<li th:each="comment : ${post.comments}">
+       		<span th:text="${comment}"></span>
+       	</ul>
+       </div>
+        <hr />       
+      </span>  
+    </div>
+	</body>
+</html>

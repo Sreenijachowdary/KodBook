@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+   <meta charset="ISO-8859-1">
+   <title>Edit Profile</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">	
+		<style>
+       body {
+		  font-family: Arial, sans-serif;
+		  color: #333; 
+		  background-color: #f4f4f4; 
+		  margin: 0;
+		  padding: 0;
+		}
+		.navbar {
+		  background-color: #333; 
+		  padding: 10px 20px;
+		  display: flex;
+		  justify-content: space-around; 
+		  align-items: center;
+		}
+		
+		.navbar a {
+		  color: #fff; 
+		  text-decoration: none;
+		  padding: 10px;
+		  border-radius: 4px; 
+		  transition: background-color 0.3s, color 0.3s; 
+		}
+		
+		.navbar a:hover {
+		  background-color: #fff; 
+		  color: #000; 
+		}	
+      .myprofile-container{
+		  margin: 20px auto;
+		  padding: 20px;
+		  box-shadow: 0 0 10px rgba(0,0,0,1);
+		  background-color: #fff; 
+		  border-radius: 8px; 
+          width: 400px;
+      }
+      .myprofile-container{
+          text-align: center;
+          margin-bottom: 20px;
+      }
+      .form-group label{
+         display: block;
+         margin-bottom: 5px;
+         text-align: left;
+      }
+      .form-group input{
+          width: 100%;
+          padding: 8px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+      }
+      .form-group input:focus{
+          border-color: #333;
+          outline: none;
+      }
+      .form-group button{
+          width: 100%;
+          padding: 10px;
+          border:none;
+          background-color: #333;
+          color: white;
+          font-size: 16px;
+          border-radius: 4px;
+          cursor: pointer;
+      }
+      .form-group button:hover{
+          background-color: black;
+      }
+      .a{
+          cursor:pointer;
+      }
+      .ed{
+          text-align: right;
+      }
+      button{
+          width: 60%;
+          padding: 10px;
+          border:none;
+          background-color: #ff9933;
+          color: black;
+          font-size: 13px;
+          border-radius: 4px;
+          cursor: pointer;
+          text-align:center;
+      }
+      button:hover{
+          background-color: #ec8621;
+      }
+      
+      h1 {
+        font-family: Arial, sans-serif; /* Sets a clean, readable font */
+        font-size: 2rem; /* Adjusts the size of the heading */
+        text-align: left; /* Centers the text */
+        color: #333; /* Sets a dark gray color for the text */
+        padding:5px; /* Adds some space around the heading */
+        background-color: #f4f4f4; /* Light gray background color */
+        position: relative;
+        bottom: 30px;
+        right:20px;
+      }
+  
+      span{
+          color:#ff9933;
+      }
+      p{
+          position: relative;
+          top:5px;
+            right:12%;
+      }
+ 
+      
+     </style>
+	</head>
+<body>
+	<div class="navbar">
+    	<a href="/goHome"><i class="fas fa-home"></i> Home</a>
+        <a href="/openCreatePost"><i class="fas fa-plus-circle"></i> Create post</a>
+        <a href="/openMyProfile"><i class="fas fa-user-circle"></i> My profile</a>
+         <a href="/logout"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+    </div>
+    <div class="myprofile-container">
+        <form action="/updateProfile" method="post" enctype="multipart/form-data">
+            <h1><span>My</span> Profile</h1>
+            <div class="form-group">
+	              <label for="profilePic">Profile Picture </label>
+	              <input type="file" name="profilePic" accept="img/*">
+	         </div>
+               <br>
+              <div class="form-group">
+               <label for="dob">DOB</label>
+               <input type="date" name="dob" required>
+            </div>
+            <br>
+                <label >GENDER </label>
+               <input type="radio" name="gender" value="male">Male
+               <input type="radio" name="gender" value="female">female
+               <input type="radio" name="gender" value="other">other
+            <br>
+            <div class="form-group">
+                <label for="city">Current City</label>
+                <input type="text" name="city" placeholder="enter current city" required>
+            </div>
+            <br>
+            <div class="form-group">
+            <label for="bio">BIO</label>
+            <input type="text" name="bio" placeholder="Enter About User">
+             </div>	
+             <br>
+             <div class="form-group">
+                <label for="college">Education details</label>
+                <input type="text" name="college" required>
+             </div>
+             <br>
+             <div class="form-group">
+                <input type="url" name="linkedIn" placeholder="linkedIn Url" required>
+             </div>
+             <br>
+             <div class="form-group">
+                <input type="url" name="gitHub" placeholder="gitHub url" required>
+             </div>
+             <br>
+            <div class="ed">
+               <a href="/"><button type="submit">Update Profile</button></a>
+           </div>
+         </form>
+       </div>
+    </div>
+</body>
+</html>

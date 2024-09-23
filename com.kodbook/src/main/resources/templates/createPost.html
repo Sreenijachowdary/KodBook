@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Creating Post</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+		
+		<style>
+	
+		body {
+		  font-family: Arial, sans-serif;
+		  color: #333; 
+		  background-color: #f4f4f4; 
+		  margin: 0;
+		  padding: 0;
+		}
+		.navbar {
+		  background-color: #333; 
+		  padding: 10px 20px;
+		  display: flex;
+		  justify-content: space-around; 
+		  align-items: center;
+		}
+		
+		.navbar a {
+		  color: #fff; 
+		  text-decoration: none;
+		  padding: 10px;
+		  border-radius: 4px; 
+		  transition: background-color 0.3s, color 0.3s; 
+		}
+		
+		.navbar a:hover {
+		  background-color: #fff; 
+		  color: #000; 
+		}	
+		.post-Container {
+		  max-width: 300px;
+		  margin: 20px auto;
+		  padding: 20px;
+		  box-shadow: 0 0 10px rgba(0,0,0,1);
+		  background-color: #fff; 
+		  border-radius: 8px; 
+		}
+	    .post-Container{
+	        text-align: center;
+	        margin-bottom: 20px;
+	    }
+	    .form-group label{
+	       display: block;
+	       margin-bottom: 5px;
+	       text-align: left;
+	    }
+	    .form-group textarea{
+	        width: 100%;
+	        padding: 4px;
+	        border: 1px solid #ddd;
+	        border-radius: 4px;
+	    }
+	    .form-group textarea:focus{
+	        border-color: #333;
+	        outline: none;
+	    }
+	    .form-group input{
+	        width: 100%;
+	        padding: 4px;
+	        border: 1px solid #ddd;
+	        border-radius: 4px;
+	    }
+	    .form-group input:focus{
+	        border-color: #333;
+	        outline: none;
+	    }
+	    .form-group button{
+	        width: 50%;
+	        padding: 10px;
+	        border:none;
+	        background-color: #333;
+	        color: white;
+	        font-size: 16px;
+	        border-radius: 4px;
+	        cursor: pointer;
+	        text-align:center;						
+	    }
+	    .form-group button:hover{
+	        background-color: Black;
+	    }
+	    span{
+	    	color:#ff9933;
+	    }
+	    form-group span{
+	    	color:#333;
+	    	text-align:left;
+	    }
+	    .user-info {
+		    display: flex;
+		    align-items: center;
+		    margin-right: auto; /* Pushes links to the right */
+		}
+		
+		.profile-photo {
+		    width: 40px; /* Adjust size as needed */
+		    height: 40px; /* Adjust size as needed */
+		    border-radius: 50%; /* Make it circular */
+		    margin-right: 10px; /* Spacing between image and username */
+		} 
+        
+	</style>
+		
+	</head>
+	<body>
+	 <div class="navbar">
+	   
+        <span th:text="${session.username}"></span>
+    
+    	<a href="/goHome"><i class="fas fa-home"></i> Home</a>
+        <a href="/openCreatePost"><i class="fas fa-plus-circle"></i> Create post</a>
+        <a href="/openMyProfile"><i class="fas fa-user-circle"></i> My profile</a>
+        <a href="/logout"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+  </div>
+		<div class="post-Container">
+				<h2><span>P</span>ost</h2>
+			
+			<form id="postForm" action="/createPost" method="post" 
+					enctype="multipart/form-data">
+			<div class="form-group">
+			<span th:text="${session.username}"></span>
+			</div>
+	 			<div class="form-group">
+		 			<label for="caption">Caption</label>
+	           		<textarea rows="5" cols="20" type="text" name="caption" placeholder="Enter caption"></textarea>
+  				</div>	
+	  			 <div class="form-group">
+	                <label for="profile">Profile Picture </label>
+	                <input type="file" name="photo" accept="img/*">
+	            </div>
+	   			<br>
+	   			<div class="form-group">
+	            	<button type="submit">POST</button>
+	        	</div>
+   			</form>
+   			
+	 </div>
+	
+	</body>
+</html>
